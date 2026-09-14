@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block title %}Цены и продукция{% endblock %}
+
+{% block content %}
+<div class="prices-page">
+    <h1>Прайс-лист</h1>
+    <p class="prices-intro">Актуальные цены на нашу продукцию. Все цены указаны в рублях за единицу измерения без НДС.</p>
+    
+    <!-- Товарный бетон -->
+    <div class="price-section" id="concrete">
+        <h2>Товарный бетон</h2>
+        <table class="price-table">
+            <thead>
+                <tr>
+                    <th>Марка бетона</th>
+                    <th>Класс бетона</th>
+                    <th>Стоимость (руб.) за 1 м³ (без НДС)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in concrete %}
+                <tr>
+                    <td>{{ item.mark }}</td>
+                    <td>{{ item.concrete_class }}</td>
+                    <td>{{ item.price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Раствор -->
+    <div class="price-section" id="mortar">
+        <h2>Раствор</h2>
+        <table class="price-table">
+            <thead>
+                <tr>
+                    <th>Марка раствора</th>
+                    <th>Стоимость (руб.) за 1 м³ (без НДС)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in mortar %}
+                <tr>
+                    <td>{{ item.mark }}</td>
+                    <td>{{ item.price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Мелкозернистый бетон -->
+    <div class="price-section" id="fine-concrete">
+        <h2>Мелкозернистый бетон</h2>
+        <table class="price-table">
+            <thead>
+                <tr>
+                    <th>Марка бетона</th>
+                    <th>Стоимость (руб.) за 1 м³ (без НДС)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in fine_concrete %}
+                <tr>
+                    <td>{{ item.mark }}</td>
+                    <td>{{ item.price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p class="delivery-info">🚚 Доставка бетона и раствора осуществляется автобетоносмесителем V=5м³</p>
+    </div>
+    
+    <!-- ЖБИ изделия -->
+    <div class="price-section" id="zbi">
+        <h2>Железобетонные изделия</h2>
+        
+        <h3>Кольца стеновые:</h3>
+        <table class="price-table">
+            <thead>
+                <tr>
+                    <th>Наименование</th>
+                    <th>Стоимость (руб.) без НДС</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in rings %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <h3>Бордюры:</h3>
+        <table class="price-table">
+            <thead>
+                <tr>
+                    <th>Наименование</th>
+                    <th>Стоимость (руб.) без НДС</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in borders %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="price-note">
+        <strong>Обратите внимание:</strong>
+        <ul>
+            <li>Цены указаны без учета НДС</li>
+            <li>Цены действительны на момент публикации</li>
+            <li>Для уточнения актуальных цен звоните по телефону <a href="tel:+79089099092">8-908-909-90-92</a></li>
+            <li>Информация на сайте не является публичной офертой (ст. 437 ГК РФ)</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,778 @@
+/* Сброс отступов */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Светло-серый фон */
+    color: #333;
+    line-height: 1.6;
+}
+
+.site-header {
+    background-color: #333;
+    color: #fff;
+    width: 100%; /* Растяжка от края до края */
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column; /* Контакты сверху, меню снизу */
+    align-items: center;
+    max-width: 100%;
+}
+
+/* --- Верхняя панель контактов (справа) --- */
+.header-top {
+    width: 10%;
+    margin-top: 7px;
+    display: flex;
+    flex-direction: column; /* Элементы в столбик */
+    align-items: flex-end;  /* Выравнивание столбика по правому краю */
+    justify-content: flex-end;
+    position: absolute;
+    top: 0;
+    right: 0;
+    gap: 5px; /* Уменьшил отступ между строками в столбике */
+    margin-bottom: 10px;
+    padding-right: 5%;
+    font-size: 0.7rem;
+    line-height: 1.4; /* Компактный межстрочный интервал */
+}
+
+/* Дополнительно: стили для внутренних элементов, чтобы они не растягивались */
+.header-top .contact-item,
+.header-top .address,
+.header-top .work-time,
+.header-top .phone {
+    display: block;
+    text-align: right;
+    white-space: nowrap; /* Запрет переноса текста внутри строки */
+}
+
+/* Телефон — чуть крупнее и жирнее */
+.header-top .phone {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: -5px;
+    margin-bottom: -5px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.header-top .phone:hover {
+    color: #667eea;
+}
+
+/* --- Навигационное меню (по центру) --- */
+.main-nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Равные отступы между пунктами */
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.main-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 1.1rem;
+    display: block;
+}
+
+.main-nav ul li a:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+/* Логотип в центре меню */
+.main-nav ul li.logo a {
+    font-weight: bold;
+    font-size: 1.4rem;
+    padding: 0 20px;
+    background-color: transparent;
+}
+
+.main-nav ul li.logo a:hover {
+    background-color: transparent;
+    color: #667eea;
+}
+
+/* Основной контент */
+main {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Hero секция */
+.hero {
+    text-align: center;
+    padding: 100px 20px;  /* Увеличил отступы для лучшего вида */
+    background: linear-gradient(rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8)), 
+                url('../img/hero-bg.jpg') center/cover no-repeat;
+    color: #fff;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Кнопки */
+.btn-primary,
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #2f35a1;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.btn-primary:hover,
+.btn:hover {
+    background-color: #1e238d;
+}
+
+.btn {
+    background-color: #4C51BF;
+    padding: 10px 25px;
+}
+
+.btn:hover {
+    background-color: #A3BFFA;  
+}
+
+/* Преимущества */
+.advantages {
+    margin-bottom: 40px;
+}
+
+.advantages h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.advantage {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.advantage h3 {
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+/* Продукция */
+.products {
+    margin-bottom: 40px;
+}
+
+.products h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.products-subtitle {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.product h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.product p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+/* CTA секция */
+.cta {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(rgba(102, 126, 234, 0.85), rgba(118, 75, 162, 0.85)), 
+                url('../img/cta-bg.jpg') center/cover no-repeat;
+    color: #fff;
+    border-radius: 8px;
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta h2 {
+    margin-bottom: 15px;
+    font-size: 2.2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.cta p {
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.cta .btn-primary,
+.cta .btn {
+    position: relative;
+    z-index: 1;
+}
+
+/* Страница цен */
+.prices-page {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.prices-page h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+.prices-intro {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #666;
+}
+
+.price-section {
+    background: #fff;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.price-section h2 {
+    margin-bottom: 20px;
+    color: #667eea;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 10px;
+}
+
+.price-section h3 {
+    margin: 25px 0 15px;
+    color: #333;
+}
+
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.price-table th,
+.price-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.price-table th {
+    background-color: #667eea;
+    color: #fff;
+    font-weight: bold;
+}
+
+.price-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.delivery-info {
+    background: #fff3cd;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 20px 0;
+    border-left: 4px solid #ffc107;
+}
+
+.price-note {
+    background: #e7f3ff;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 30px;
+    border-left: 4px solid #2196F3;
+}
+
+.price-note ul {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.price-note li {
+    margin-bottom: 8px;
+}
+
+/* Подвал */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px 20px;
+    margin-top: 50px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+    color: #667eea;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    color: #667eea;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #555;
+}
+
+.footer-bottom p {
+    margin-bottom: 10px;
+}
+
+.footer-bottom .disclaimer {
+    font-size: 0.85rem;
+    color: #aaa;
+    max-width: 800px;
+    margin: 10px auto;
+}
+
+.footer-bottom .requisites {
+    font-size: 0.85rem;
+    color: #aaa;
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    .header-top {
+        justify-content: center; /* На мобильных контакты по центру */
+        flex-wrap: wrap;
+        gap: 10px;
+        padding-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .main-nav ul {
+        gap: 15px;
+    }
+    
+    .main-nav ul li a {
+        font-size: 1rem;
+        padding: 8px 10px;
+    }
+    
+    .main-nav ul li.logo a {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .header-top {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.footer-bottom .privacy-link {
+    margin-top: 10px;
+    font-size: 0.85rem;
+}
+.footer-bottom .privacy-link a {
+    color: #aaa;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+.footer-bottom .privacy-link a:hover {
+    color: #fff;
+}
+
+/* === Страницы О заводе и Контакты === */
+.page-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.page-container h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+    color: #333;
+}
+
+/* О заводе */
+.about-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.about-text h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+}
+
+.about-text h3 {
+    color: #333;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.about-text p {
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.features-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    line-height: 1.6;
+}
+
+.features-list li:last-child {
+    border-bottom: none;
+}
+
+.about-photos {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.photo-placeholder {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.placeholder-icon {
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+.photo-placeholder p {
+    margin: 5px 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.placeholder-hint {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    margin-top: 10px;
+}
+
+/* Контакты */
+.contacts-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.contact-block {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.contact-block h2 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.contact-block p {
+    margin: 8px 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+.order-info {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.phone-big {
+    display: inline-block;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    margin: 15px 0;
+    padding: 10px 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.phone-big:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.contact-person {
+    font-style: italic;
+    color: #666;
+    margin-top: 10px;
+}
+
+.note {
+    font-size: 0.9rem;
+    color: #888;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.contacts-map h2 {
+    text-align: center;
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+.map-placeholder {
+    background: #f8f9fa;
+    border: 3px dashed #dee2e6;
+    border-radius: 10px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+}
+
+.map-placeholder p {
+    margin: 10px 0;
+    color: #495057;
+}
+
+.map-instruction {
+    font-size: 0.9rem;
+    color: #6c757d;
+    line-height: 1.8;
+    margin-top: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    max-width: 400px;
+}
+
+.map-instruction a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+.map-instruction a:hover {
+    text-decoration: underline;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .about-content,
+    .contacts-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-photos {
+        grid-template-columns: 1fr;
+    }
+    
+    .map-placeholder {
+        height: 300px;
+    }
+    
+    .phone-big {
+        font-size: 1.4rem;
+    }
+}
+
+.contact-block {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    height: 100%; /* Одинаковая высота блоков */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.contact-block h2 {
+    color: #333;
+    font-weight: 600;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+}
+
+.contact-block p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.phone-big {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    padding: 8px 15px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+.phone-big:hover {
+    background: #e9ecef;
+    color: #333;
+}
+
+.contact-person {
+    font-style: italic;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.contact-map {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.map-container {
+    flex: 1;
+    min-height: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    border: 0;
+}
+
+@media (max-width: 991px) {
+    .contact-map {
+        margin-top: 20px;
+    }
+    .map-container {
+        min-height: 250px;
+    }
+}
