@@ -1,0 +1,49 @@
+services:
+  # FastAPI backend. Commands run from the repository root because the app
+  # imports the `backend` package.
+  - type: web
+    name: koval-dev-backend
+    runtime: python
+    plan: free
+    autoDeploy: true
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --workers 2 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:$PORT backend.main:app
+    healthCheckPath: /api/health
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: CORS_ORIGINS
+        value: https://koval-dev-frontend.onrender.com,https://koval-dev.onrender.com
+      - key: SURVEY_DATA_DIR
+        value: backend/data/submissions
+      # SMTP настройки (установите в Dashboard Render.com)
+      - key: SMTP_HOST
+        value: smtp.gmail.com
+      - key: SMTP_PORT
+        value: 465
+      - key: SMTP_SECURITY
+        value: ssl
+      - key: SMTP_AUTH
+        value: true
+      # Эти переменные нужно установить вручную в Dashboard Render.com
+      - key: SMTP_USERNAME
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: SMTP_FROM_EMAIL
+        sync: false
+      - key: SURVEY_RECIPIENT_EMAIL
+        sync: false
+
+  # React frontend (static site).
+  - type: web
+    name: koval-dev-frontend
+    runtime: static
+    plan: free
+    autoDeploy: true
+    buildCommand: npm ci --prefix frontend && npm run build --prefix frontend
+    staticPublishPath: frontend/dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://koval-dev-backend.onrender.com
+
