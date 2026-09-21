@@ -5,10 +5,8 @@ services:
     runtime: python
     rootDir: backend
     plan: free
-    autoDeploy: true
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn --workers 2 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:$PORT main:app
-    healthCheckPath: /api/health
     envVars:
       - key: APP_ENV
         value: production
@@ -16,31 +14,23 @@ services:
         value: https://koval-dev-frontend.onrender.com
       - key: SURVEY_DATA_DIR
         value: data/submissions
-      - key: SMTP_HOST
-        value: smtp.gmail.com
-      - key: SMTP_PORT
-        value: "465"
-      - key: SMTP_SECURITY
-        value: ssl
-      - key: SMTP_AUTH
-        value: "true"
       - key: SMTP_USERNAME
         sync: false
       - key: SMTP_PASSWORD
         sync: false
-      - key: SMTP_FROM_EMAIL
-        sync: false
-      - key: SURVEY_RECIPIENT_EMAIL
-        sync: false
 
-  # Frontend React — Static Site (НЕ Web Service!)
-  - type: static
+  # Frontend React — Static Site (type: web + runtime: static)
+  - type: web
     name: koval-dev-frontend
+    runtime: static
     rootDir: frontend
     plan: free
-    autoDeploy: true
     buildCommand: npm install && npm run build
     staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
     envVars:
       - key: VITE_API_URL
         value: https://koval-dev-backend.onrender.com
