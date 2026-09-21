@@ -1,23 +1,5 @@
 services:
-  # Backend FastAPI — Web Service
-  - type: web
-    name: koval-dev-backend
-    runtime: python
-    rootDir: backend
-    plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn --workers 2 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:$PORT main:app
-    envVars:
-      - key: APP_ENV
-        value: production
-      - key: CORS_ORIGINS
-        value: https://koval-dev-frontend.onrender.com
-      - key: SURVEY_DATA_DIR
-        value: data/submissions
-      - key: SMTP_USERNAME
-        sync: false
-      - key: SMTP_PASSWORD
-        sync: false
+
 
   # Frontend React — Static Site (type: web + runtime: static)
   - type: web
@@ -34,3 +16,4 @@ services:
     envVars:
       - key: VITE_API_URL
         value: https://koval-dev-backend.onrender.com
+
