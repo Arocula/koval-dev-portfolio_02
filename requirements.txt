@@ -1,0 +1,13 @@
+# FastAPI Backend
+fastapi==0.128.2
+uvicorn[standard]==0.48.0
+pydantic==2.13.4
+python-dotenv==1.2.2
+email-validator==2.3.0
+
+# Flask Demo
+Flask==3.0.3
+Flask-SQLAlchemy==3.1.1
+SQLAlchemy==2.0.31
+Werkzeug==3.0.3
+gunicorn==21.2.0

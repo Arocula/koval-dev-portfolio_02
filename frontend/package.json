@@ -1,0 +1,26 @@
+{
+  "name": "koval-dev-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Portfolio website with React and FastAPI survey integration",
+  "scripts": {
+    "start": "vite --host localhost --port 3000 --strictPort",
+    "dev": "vite --host localhost --port 3000 --strictPort",
+    "build": "vite build",
+    "preview": "vite preview --host localhost --port 4173 --strictPort"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.7.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.7.0",
+    "vite": "^6.4.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

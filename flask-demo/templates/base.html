@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Бетон в Краснотурьинске - Купить от производителя{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <header class="site-header">
+        <div class="container-fluid header-container">
+            <!-- Верхняя полоса с контактами (справа) -->
+            <div class="header-top">
+                <div class="contact-item">
+                    <span class="work-time">Пн-Пт: 8:00 - 17:00</span>
+                </div>
+                <div class="contact-item">
+                    <a href="tel:+79089099092" class="phone">8-908-909-90-92</a>
+                </div>
+                <div class="contact-item">
+                    <span class="address">г. Краснотурьинск, ул. Фрунзе 85/2</span>
+                </div>
+            </div>
+
+            <!-- Навигация по центру -->
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="/">Главная</a></li>
+                    <li><a href="/prices">Цены</a></li>
+                    <li class="logo">
+                        <a href="/">БетонПартнер</a>
+                    </li>
+                    <li><a href="/about">О заводе</a></li>
+                    <li><a href="/contacts">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>О компании</h3>
+                <p>Производство и доставка товарного бетона в Краснотурьинске и Свердловской области. 
+                Собственный автопарк, контроль качества.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Навигация</h3>
+                <ul>
+                    <li><a href="/prices">Прайс-лист</a></li>
+                    <li><a href="/contacts">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <p>Свердловская обл., г. Краснотурьинск, ул. Фрунзе 85/2</p>
+                <p><a href="tel:+79089099092">8-908-909-90-92</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2010-2026 БетонПартнер. Все права защищены.</p>
+            <p class="disclaimer">Информация на сайте носит исключительно информационный характер и не является публичной офертой, определяемой положениями ст.437 ГК РФ.</p>
+            <p class="requisites">ИНН 661700035206 | ОГРН 305661729400010 | серия 66 № 003251994 от 21.10.2005 г.</p>
+        </div>
+    </footer>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>
